@@ -6,7 +6,7 @@ import { Task } from '../models/task';
   providedIn: 'root'
 })
 export class TaskService {
-   apiUrl = "http://localhost:5000/tasks";
+   apiUrl = "http://localhost:3000/tasks";
   constructor(private http:HttpClient) { }
     findAll() {
       return this.http.get<Task[]>(this.apiUrl);

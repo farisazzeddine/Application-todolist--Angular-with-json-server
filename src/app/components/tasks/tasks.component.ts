@@ -28,7 +28,10 @@ export class TasksComponent implements OnInit {
     })
   }
   deleteTask(id){
-this.taskService.delete(id).subscribe(() => {this.tasks = this.tasks.filter(task => task.id != id)
+this.taskService.delete(id).subscribe(() => {
+  this.resultTasks = this.tasks.filter(task => task.id != id);
+  this.resetTask();
+
 })
   }
   persistTask(){
@@ -36,6 +39,7 @@ this.taskService.delete(id).subscribe(() => {this.tasks = this.tasks.filter(task
       this.tasks = [task, ...this.tasks];
       this.resetTask();
       this.showForm = false;
+      this.getTasks();
     })
   }
   resetTask(){
